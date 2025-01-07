@@ -4,20 +4,12 @@ import github from "./assets/github-logo-white.svg"
 import xLogo from "./assets/x-logo-white.svg"
 import {useEffect, useState} from "react";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-function getCard(service: string, logo: string, data) {
-    return (
-        <motion.div whileHover={{scale: 1.25, transition: {duration: 0.25, type: "easeInOut"}}}>
-            <div className="card" onClick={() => window.open(data[service], "_blank")}>
-                <img src={logo} alt={service}/>
-                <p>{service}</p>
-            </div>
-        </motion.div>
-    )
-}
+type CardProps = {
+    service: string;
+    logo: string;
+};
 
-function App() {
+const Card: React.FC<CardProps> = ({service, logo}) => {
     const [data, setData] = useState(null);
 
     useEffect(() => {
@@ -29,10 +21,21 @@ function App() {
         fetchData();
     })
 
+   return (
+       <motion.div whileHover={{scale: 1.25, transition: {duration: 0.25, type: "easeInOut"}}}>
+           <div className="card" onClick={() => window.open(data[service], "_blank")}>
+               <img src={logo} alt={service}/>
+               <p>{service}</p>
+           </div>
+       </motion.div>
+   )
+};
+
+function App() {
     return (
         <>
-            {getCard("GitHub", github, data)}
-            {getCard("X", xLogo, data)}
+            <Card service="GitHub" logo={github} />
+            <Card service="X" logo={xLogo} />
         </>
     )
 }
