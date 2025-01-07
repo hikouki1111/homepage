@@ -27,8 +27,8 @@ const Card: React.FC<CardProps> = ({service, logo}) => {
                if (data != null)
                    window.open(data[service], "_blank")
            }}>
+               <h1>{service}</h1>
                <img src={logo} alt={service}/>
-               <p>{service}</p>
            </div>
        </motion.div>
    )

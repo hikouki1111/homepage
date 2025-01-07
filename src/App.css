@@ -22,6 +22,6 @@
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 .card img {
-  max-width: 10vw;
-  max-height: 10vh;
+  max-width: 5vw;
+  max-height: 5vh;
 }
