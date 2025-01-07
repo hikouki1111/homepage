@@ -19,11 +19,14 @@ const Card: React.FC<CardProps> = ({service, logo}) => {
             setData(json);
         }
         fetchData();
-    })
+    }, [])
 
    return (
        <motion.div whileHover={{scale: 1.25, transition: {duration: 0.25, type: "easeInOut"}}}>
-           <div className="card" onClick={() => window.open(data[service], "_blank")}>
+           <div className="card" onClick={() => {
+               if (data != null) 
+                   window.open(data[service], "_blank")
+           }}>
                <img src={logo} alt={service}/>
                <p>{service}</p>
            </div>
