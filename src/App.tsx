@@ -1,5 +1,6 @@
 import { motion } from 'motion/react'
 import './App.css'
+import penLogo from "./assets/pen-logo-white.svg"
 import github from "./assets/github-logo-white.svg"
 import xLogo from "./assets/x-logo-white.svg"
 import {useEffect, useState} from "react";
@@ -37,6 +38,7 @@ const Card: React.FC<CardProps> = ({service, logo}) => {
 function App() {
     return (
         <>
+            <Card service="Blog" logo={penLogo} />
             <Card service="GitHub" logo={github} />
             <Card service="X" logo={xLogo} />
         </>
