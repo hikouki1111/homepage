@@ -12,7 +12,6 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({service, logo}) => {
     const [data, setData] = useState(null);
-
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch('/links.json');
@@ -35,12 +34,41 @@ const Card: React.FC<CardProps> = ({service, logo}) => {
    )
 };
 
+type ContactProps = {
+    name: string;
+}
+
+const Contact: React.FC<ContactProps> = ({name}) => {
+    const [data, setData] = useState(null);
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch('/contacts.json');
+            const json = await response.json();
+            setData(json);
+        }
+        fetchData();
+    }, [])
+
+    return (
+        <p>{name}: {data != null ? data[name] : ""}</p>
+    )
+};
+
 function App() {
     return (
         <>
-            <Card service="Blog" logo={penLogo} />
-            <Card service="GitHub" logo={github} />
-            <Card service="X" logo={xLogo} />
+            <div className="card-container">
+                <Card service="Blog" logo={penLogo} />
+                <Card service="GitHub" logo={github} />
+                <Card service="X" logo={xLogo} />
+            </div>
+            <footer className="contact">
+                <p style={{textAlign: "center"}}>Contact me</p>
+                <div className="contact-container">
+                    <Contact name="Email" />
+                    <Contact name="Discord" />
+                </div>
+            </footer>
         </>
     )
 }

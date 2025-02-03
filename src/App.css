@@ -1,10 +1,14 @@
 #root {
+  overflow: hidden;
+}
+
+.card-container {
+  place-items: center;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
-
 .card {
   min-width: 15vw;
   min-height: 10vh;
@@ -24,4 +28,20 @@
 .card img {
   max-width: 5vw;
   max-height: 5vh;
+}
+
+.contact {
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  min-width: 100vw;
+}
+.contact-container {
+  display: grid;
+  gap: 0;
+  justify-items: start;
+  justify-content: center;
+}
+.contact-container p {
+  margin: 0;
 }
