@@ -60,7 +60,6 @@ function App() {
             <div className="card-container">
                 <Card service="Blog" logo={penLogo} />
                 <Card service="GitHub" logo={github} />
-                <Card service="X" logo={xLogo} />
             </div>
             <footer className="contact">
                 <p style={{textAlign: "center"}}>Contact me</p>
