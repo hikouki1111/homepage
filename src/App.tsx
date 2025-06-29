@@ -2,7 +2,6 @@ import { motion } from 'motion/react'
 import './App.css'
 import penLogo from "./assets/pen-logo-white.svg"
 import github from "./assets/github-logo-white.svg"
-import xLogo from "./assets/x-logo-white.svg"
 import {useEffect, useState} from "react";
 
 type CardProps = {
@@ -60,13 +59,11 @@ function App() {
             <div className="card-container">
                 <Card service="Blog" logo={penLogo} />
                 <Card service="GitHub" logo={github} />
-                <Card service="X" logo={xLogo} />
             </div>
             <footer className="contact">
                 <p style={{textAlign: "center"}}>Contact me</p>
                 <div className="contact-container">
                     <Contact name="Email" />
-                    <Contact name="Discord" />
                 </div>
             </footer>
         </>
